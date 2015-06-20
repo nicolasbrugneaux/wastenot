@@ -1,0 +1,420 @@
+@import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
+
+
+html, body 
+{
+    height:                         100%;
+    /* The html and body elements cannot have any padding or margin. */
+    -webkit-font-smoothing:         antialiased;
+    font:                           normal 14px arial, sans-serif;
+}
+
+
+.row 
+{
+    margin-left:                    0px;
+    margin-right:                   0px;
+}
+
+
+/* Wrapper for page content to push down footer */
+#wrap 
+{
+    min-height:                     100%;
+    height:                         auto !important;
+    height:                         100%;
+    /* Negative indent footer by its height */
+    margin:                         0 auto -60px;
+    /* Pad bottom by footer height */
+    padding:                        0 0 60px;
+}
+
+
+/* Set the fixed height of the footer here */
+#footer 
+{
+    height:                         60px;
+    margin-top:                     50px;
+    padding-top:                    20px;
+    padding-bottom:                 20px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+#wrap > .container 
+{
+    padding:                        60px 15px 0;
+}
+
+
+.container .credit 
+{
+    margin:                         20px 0;
+}
+
+
+#footer 
+{
+    background-color:               #414141;
+}
+
+
+#footer a 
+{
+    color:                          #efefef;
+}
+
+
+h1, h2, h3, h4 
+{
+    font-family:                    'Kreon', serif;
+    vertical-align:                 middle;
+}
+
+
+header 
+{
+    background:                     url( '../img/food-rainbow.png' ) no-repeat center center fixed; 
+    height:                         430px;
+    color:                          #000;
+}
+
+
+header h1, header h2, header h3 a, header a, header a:hover 
+{
+    color:                          #101010;
+    font-weight:                    800;
+    text-decoration:                none;
+}
+
+
+header h3 
+{
+    font-family:                    'Kreon', serif;
+    background:                     #ffcc33;
+    padding:                        10px;
+    border-radius:                  3px;
+    font-size:                      34px;
+    padding:                        12px 10px 6px 10px;
+}
+
+
+header .dropdown-menu 
+{
+    top:                            74px;
+    background:                     #ffcc33;
+    border-width:                   0;
+}
+
+
+#wrap > .container
+{
+    padding-top:                    20px;
+}
+
+
+.recipe--search__wrapper
+{
+    height:                         100px;
+}
+
+
+.recipe--search__wrapper .home__buttons
+{
+    display:                        inline-block;
+}
+
+
+.recipe--search__wrapper .home__buttons div
+{
+    position:                       relative;
+    left:                           5px;
+}
+
+
+.recipe--search
+{
+    width:                          300px;
+    margin-top:                     5px;
+    height:                         90px;
+    border:                         3px solid #2E2D2E;
+    padding:                        5px;
+    font-family:                    'Kreon', serif;
+    /*font-family:                    Tahoma, sans-serif;*/
+    /*background-image:             url(bg.gif);*/
+    /*background-position:          bottom right;
+    background-repeat:              no-repeat;*/
+
+    overflow:                       auto;
+    resize:                         none;
+    height:                         100px;
+}
+
+
+.recipe--search:focus
+{
+    border:                         #000 2px solid;
+}
+
+.buttons button
+{
+    background-color:               #2E2D2E;
+    color:                          #fff;
+    border:                         none;
+    width:                          calc(50% - 2px);
+    margin-top:                     3px;
+}
+
+
+.home__buttons
+{
+    margin-top:                     10px;
+    text-align:                     center;
+    width:                          200px;
+}
+
+
+header .home__buttons
+{
+    float:                          right;
+}
+
+
+.home__buttons div
+{
+    padding:                        10px;
+    background-color:               #FFCC33;
+    width:                          200px;
+    float:                          right;
+    margin-top:                     5px;
+    cursor:                         pointer;
+    font-size:                      20px;
+    font-weight:                    bold;
+}
+
+
+.home__buttons div:first-child
+{
+    margin-top:                     0;
+}
+
+
+.home__buttons div:hover
+{
+    background-color:               #eee;
+}
+
+
+.pull-right.hidden-xs
+{
+    position:                       relative;
+    top:                            -90px;
+}
+
+
+h1 
+{
+    font-size:                      50px;
+}
+
+#nav 
+{
+    width:                          100%;
+    position:static;
+    top:                            -32px;
+}
+
+#nav.affix 
+{
+    position:                       fixed;
+    top:                            0;
+    z-index:                        10;
+    -webkit-transition:             all 0.6s ease-in-out;
+    -moz-transition:                all 0.6s ease-in-out;
+    -ms-transition:                 all 0.6s ease-in-out;
+    -o-transition:                  all 0.6s ease-in-out;
+    transition:                     all 0.6s ease-in-out;
+}
+
+
+.page-header
+{
+    margin-top:                     0;
+}
+
+
+#footer > .container 
+{
+  
+}
+
+@media (min-width: 767px) {
+  .navbar-nav.nav-justified > li
+  {
+        float:                      none;
+  }
+}
+
+
+.navbar-nav 
+{
+    margin:                         1px 1px; 
+}  
+  
+
+.navbar-custom 
+{
+    background-color:               #2e2e2e;
+    font-weight:                    700;
+    text-transform:                 uppercase;
+    border-width:                   0;
+}
+
+
+.navbar-custom  .navbar-nav > li > a 
+{
+    color:                         #ddd;
+}
+
+
+.navbar-custom  .navbar-nav li > a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a  
+{
+    background-color:              #000;
+}
+
+
+.navbar-custom .dropdown-menu
+{
+    right:                         0;
+}
+
+
+.navbar-custom .navbar-nav > .dropdown > a .caret 
+{
+    border-top-color:              #999;
+    border-bottom-color:           #999;
+}
+
+
+.dropdown-menu > li > a
+{
+    -webkit-transition:             background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    -moz-transition:                background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    -ms-transition:                 background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition:                  background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition:                     background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+
+.dropdown-menu > li > a:hover
+{
+    background-color:               #000;
+    color:                          #fff;
+}
+
+
+.navbar-collapse.in 
+{
+    overflow-y:                     visible;
+}
+
+
+.navbar-toggle 
+{
+    outline:                       0;
+}
+
+
+.divider 
+{
+    height:                        100px;
+}
+
+
+.panel 
+{
+    border-width:                  0;
+}
+
+
+@media (max-width: 768px) {
+    header 
+    {
+        height:                   95px;
+    }
+}
+
+
+#map-canvas 
+{
+    width:                       100%; 
+    height:                      300px;
+    margin:                      0;
+    padding:                     15px;
+}
+
+
+.scroll-top 
+{
+    position:                   fixed;
+    bottom:                     0;
+    right:                      6%;
+    z-index:                    100;
+    background:                 #ffcc33;
+    font-size:                  24px;
+    border-top-left-radius:     3px;
+    border-top-right-radius:    3px;
+}
+
+
+.scroll-top a:link, .scroll-top a:visited 
+{
+    color:                      #222;
+} 
+ 
+
+section 
+{ 
+    color:                      #fff;
+    min-height:                 400px;
+    height:                     auto !important;
+    height:                     100%;
+    padding-top:                100px;
+}
+
+
+.bg-cover
+{
+    background:                 url('') no-repeat center center fixed; 
+    -webkit-background-size:    cover;
+    -moz-background-size:       cover;
+    -o-background-size:         cover;
+    background-size:            cover;
+}
+
+
+.bg-1 
+{
+    background-image:           url('http://www.bootply.com/assets/example/bg_4.jpg'); 
+}
+
+
+.bg-2 
+{
+    background-image:           url('http://www.bootply.com/assets/example/bg_5.jpg'); 
+}
+
+
+.bg-3 
+{
+    background-image:           url('http://www.bootply.com/assets/example/bg_6.jpg'); 
+}
+
+
+.bg-4 
+{
+    padding-top:                30px;
+    background-image:           -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
+}
