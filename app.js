@@ -135,6 +135,10 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedi
   res.redirect(req.session.returnTo || '/');
 });
 
+app.get('/auth/paypal', passport.authenticate('paypal', { scope: 'openid profile' }) );
+app.get('/auth/paypal/callback', passport.authenticate('paypal', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect(req.session.returnTo || '/');
+});
 /**
  * Error Handler.
  */
