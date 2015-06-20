@@ -121,7 +121,7 @@ header .dropdown-menu
 }
 
 
-.recipe--search__wrapper .home__buttons
+.recipe--search__wrapper div
 {
     display:                        inline-block;
 }
@@ -138,23 +138,26 @@ header .dropdown-menu
 {
     width:                          300px;
     margin-top:                     5px;
-    height:                         90px;
+    height:                         40px;
+    line-height:                    40px;
     border:                         3px solid #2E2D2E;
     padding:                        5px;
-    font-family:                    'Kreon', serif;
-    /*font-family:                    Tahoma, sans-serif;*/
-    /*background-image:             url(bg.gif);*/
-    /*background-position:          bottom right;
-    background-repeat:              no-repeat;*/
-
     overflow:                       auto;
     resize:                         none;
-    height:                         100px;
+}
+
+
+.recipe--search:invalid
+{
+    background-image:               url(../img/search-placeholder.png);
+    background-position:            center;
+    background-repeat:              no-repeat;
 }
 
 
 .recipe--search:focus
 {
+    background:                     none;
     border:                         #000 2px solid;
 }
 
@@ -172,13 +175,14 @@ header .dropdown-menu
 {
     margin-top:                     10px;
     text-align:                     center;
-    width:                          200px;
 }
 
 
 header .home__buttons
 {
     float:                          right;
+    margin-top:                     25px;
+    width:                          200px;
 }
 
 
@@ -189,6 +193,7 @@ header .home__buttons
     width:                          200px;
     float:                          right;
     margin-top:                     5px;
+    margin-left:                    50px;
     cursor:                         pointer;
     font-size:                      20px;
     font-weight:                    bold;
@@ -204,7 +209,7 @@ header .home__buttons
 .home__buttons div:hover
 {
     background-color:               #eee;
-}
+}s
 
 
 .pull-right.hidden-xs
@@ -417,4 +422,21 @@ section
 {
     padding-top:                30px;
     background-image:           -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
+}
+
+
+.hidden
+{
+    display:                    none !important;
+}
+
+
+.login--form
+{
+    position:                   fixed;
+    top:                        100px;
+    left:                       25%;
+    background-color:           #fff;
+    border:                     #000 2px solid;
+    width:                      50%;
 }
