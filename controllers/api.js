@@ -35,6 +35,8 @@ exports.postTwitter = function(req, res, next) {
   });
 };
 
+exports.recipes = recipes;
+
 /**
  * POST /api/twilio
  * Send a text message using Twilio.

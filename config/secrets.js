@@ -63,5 +63,11 @@ module.exports = {
     callbackURL: '/auth/paypal/callback',
     returnUrl: process.env.PAYPAL_RETURN_URL,
     cancelUrl: process.env.PAYPAL_CANCEL_URL,
+  },
+
+  yummly: {
+    appID: process.env.YUMMLY_APP_ID,
+    appKey: process.env.YUMMLY_APP_KEY
   }
+
 };
