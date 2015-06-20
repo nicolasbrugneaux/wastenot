@@ -57,7 +57,8 @@
     "jquery": "^2.1.4",
     "mocha": "^2.2.5",
     "multiline": "^1.0.2",
-    "supertest": "^1.0.1"
+    "supertest": "^1.0.1",
+    "twilio": "^2.2.1"
   },
   "license": "MIT"
 }
