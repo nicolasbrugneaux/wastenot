@@ -122,7 +122,12 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
  */
 app.post('/api/twilio', apiController.postTwilio);
 
-app.post('/api/twitter', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.postTwitter);
+/**
+ * Yummly routes.
+ */
+app.get('/api/recipes', apiController.recipes.queryRecipes);
+app.get('/api/recipe', apiController.recipes.getRecipe);
+
 
 /**
  * OAuth authentication routes. (Sign in)
