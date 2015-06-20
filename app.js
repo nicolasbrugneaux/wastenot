@@ -93,7 +93,7 @@ console.log( req.secure );
   {
       return next();
   }
-  res.redirect('https://'+req.req.hostname + req.url);
+  res.redirect('https://'+req.hostname + req.url);
 } );
 
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
