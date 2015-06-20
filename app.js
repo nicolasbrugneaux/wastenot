@@ -54,7 +54,7 @@ mongoose.connection.on('error', function() {
  */
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'hbs');
 app.use(compress());
 app.use(connectAssets({
   paths: [path.join(__dirname, 'public/css'), path.join(__dirname, 'public/js')]
@@ -88,11 +88,10 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
   if (/api/i.test(req.path)) req.session.returnTo = '/';
 
-  if( req.secure || req.host ==='localhost' )
-  {
-      return next();
+  if( req.headers['x-forwarded-proto'] === 'https' || req.hostname === 'localhost' ) {
+    return next();
   }
-  res.redirect('https://'+req.host+req.url);
+  res.redirect( 'https://' + req.hostname + req.url );
 } );
 
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
