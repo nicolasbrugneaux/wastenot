@@ -87,8 +87,14 @@ app.use(function(req, res, next) {
 });
 app.use(function(req, res, next) {
   if (/api/i.test(req.path)) req.session.returnTo = '/';
-  next();
-});
+
+  if( req.secure || req.host ==='localhost' )
+  {
+      return next();
+  }
+  res.redirect('https://'+req.host+req.url);
+} );
+
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
 /**
@@ -135,6 +141,10 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedi
   res.redirect(req.session.returnTo || '/');
 });
 
+app.get('/auth/paypal', passport.authenticate('paypal', { scope: 'openid profile' }) );
+app.get('/auth/paypal/callback', passport.authenticate('paypal', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect(req.session.returnTo || '/');
+});
 /**
  * Error Handler.
  */

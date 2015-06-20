@@ -3,6 +3,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
+var PaypalStrategy = require('passport-paypal-oauth').Strategy;
 // var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var OAuthStrategy = require('passport-oauth').OAuthStrategy;
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
@@ -66,7 +67,6 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
           user.facebook = profile.id;
           user.tokens.push({ kind: 'facebook', accessToken: accessToken });
           user.profile.name = user.profile.name || profile.displayName;
-          user.profile.gender = user.profile.gender || profile._json.gender;
           user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
           user.save(function(err) {
             req.flash('info', { msg: 'Facebook account has been linked.' });
@@ -88,8 +88,6 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
           user.facebook = profile.id;
           user.tokens.push({ kind: 'facebook', accessToken: accessToken });
           user.profile.name = profile.displayName;
-          user.profile.gender = profile._json.gender;
-          user.profile.picture = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
           user.profile.location = (profile._json.location) ? profile._json.location.name : '';
           user.save(function(err) {
             done(err, user);
@@ -114,7 +112,6 @@ passport.use(new TwitterStrategy(secrets.twitter, function(req, accessToken, tok
           user.tokens.push({ kind: 'twitter', accessToken: accessToken, tokenSecret: tokenSecret });
           user.profile.name = user.profile.name || profile.displayName;
           user.profile.location = user.profile.location || profile._json.location;
-          user.profile.picture = user.profile.picture || profile._json.profile_image_url_https;
           user.save(function(err) {
             req.flash('info', { msg: 'Twitter account has been linked.' });
             done(err, user);
@@ -127,15 +124,49 @@ passport.use(new TwitterStrategy(secrets.twitter, function(req, accessToken, tok
     User.findOne({ twitter: profile.id }, function(err, existingUser) {
       if (existingUser) return done(null, existingUser);
       var user = new User();
-      // Twitter will not provide an email address.  Period.
-      // But a person’s twitter username is guaranteed to be unique
-      // so we can "fake" a twitter email address as follows:
-      user.email = profile.username + "@twitter.com";
+      user.email = '';
       user.twitter = profile.id;
       user.tokens.push({ kind: 'twitter', accessToken: accessToken, tokenSecret: tokenSecret });
       user.profile.name = profile.displayName;
       user.profile.location = profile._json.location;
-      user.profile.picture = profile._json.profile_image_url_https;
+      user.save(function(err) {
+        done(err, user);
+      });
+    });
+  }
+}));
+
+// Sign in with Paypal.
+
+passport.use(new PaypalStrategy(secrets.paypal, function(req, accessToken, tokenSecret, profile, done) {
+  if (req.user) {
+    User.findOne({ paypal: profile.id }, function(err, existingUser) {
+      if (existingUser) {
+        req.flash('errors', { msg: 'There is already a Paypal account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
+        done(err);
+      } else {
+        User.findById(req.user.id, function(err, user) {
+          user.paypal = profile.id;
+          user.tokens.push({ kind: 'paypal', accessToken: accessToken, tokenSecret: tokenSecret });
+          user.profile.name = user.profile.name || profile.displayName;
+          user.profile.location = user.profile.location || profile._json.zoneinfo;
+          user.save(function(err) {
+            req.flash('info', { msg: 'Paypal account has been linked.' });
+            done(err, user);
+          });
+        });
+      }
+    });
+
+  } else {
+    User.findOne({ paypal: profile.id }, function(err, existingUser) {
+      if (existingUser) return done(null, existingUser);
+      var user = new User();
+      user.email = '';
+      user.paypal = profile.id;
+      user.tokens.push({ kind: 'paypal', accessToken: accessToken, tokenSecret: tokenSecret });
+      user.profile.name = profile.displayName;
+      user.profile.location = profile._json.zoneinfo;
       user.save(function(err) {
         done(err, user);
       });

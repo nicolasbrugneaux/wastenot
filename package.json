@@ -39,6 +39,7 @@
     "passport-google-oauth": "^0.2.0",
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
+    "passport-paypal-oauth": "git+https://github.com/nicolasbrugneaux/passport-paypal-oauth.git",
     "passport-twitter": "^1.0.3",
     "paypal-rest-sdk": "^1.5.3",
     "request": "^2.58.0",
