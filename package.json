@@ -52,12 +52,18 @@
     "yui": "^3.18.1"
   },
   "devDependencies": {
+    "babelify": "^6.1.2",
+    "baconjs": "^0.7.65",
     "blessed": "^0.1.60",
+    "browserify": "^10.2.4",
     "chai": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-watch": "^4.2.4",
     "jquery": "^2.1.4",
     "mocha": "^2.2.5",
     "multiline": "^1.0.2",
-    "supertest": "^1.0.1"
+    "supertest": "^1.0.1",
+    "vinyl-source-stream": "^1.1.0"
   },
   "license": "MIT"
 }
