@@ -5,3 +5,4 @@ window.Bacon = Bacon;
 
 import searchApp from './search/';
 import animations from './animations';
+import map from './map';

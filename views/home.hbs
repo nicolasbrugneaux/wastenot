@@ -29,12 +29,39 @@
                 </h1>
             </div>
             <div class="home__buttons">
-                <div class="login--button">Log In</div>
-                <div class="create--account--button">Create an Account</div>
+                <div class="login--button" data-toggle="modal" data-target="#login--modal">Log In</div>
             </div>
         </div>
     </div>
 </header>
+
+<!-- Modal -->
+<div class="modal fade" id="login--modal" tabindex="-1" role="dialog" aria-labelledby="login--modal--label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="login--modal--label">Log in</h4>
+      </div>
+      <div class="modal-body">
+          Create or connect to your account via
+          <a href="/auth/paypal" class="btn btn-block btn-paypal btn-social">
+              <i class="fa fa-paypal"></i>
+              Paypal
+          </a>
+          <a href="/auth/facebook" class="btn btn-block btn-facebook btn-social">
+              <i class="fa fa-facebook"></i>
+              Facebook
+          </a>
+          <a href="/auth/twitter" class="btn btn-block btn-twitter btn-social">
+              <i class="fa fa-twitter"></i>
+              Twitter
+          </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- Fixed navbar -->
@@ -259,53 +286,6 @@
 <ul class="nav pull-right scroll-top">
   <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
 </ul>
-
-
-
-<div class="login--form  hidden">
-    <div class="page-header">
-        <h3>Sign in</h3>
-    </div>
-    <form method="POST">
-        <input type="hidden" name="_csrf"/>
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="form-group">
-                <label for="email" class="control-label">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email" autofocus="autofocus" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="password" class="control-label">Password</label>
-                <input type="password" name="password" id="password" placeholder="Password" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-user"></i>
-                    Login
-                </button>
-                <a href="/forgot" class="btn btn-link">Forgot your password?</a>
-            </div>
-                <hr>
-                <a href="/auth/paypal" class="btn btn-block btn-paypal btn-social">
-                    <i class="fa fa-paypal"></i>
-                    Sign in with Paypal
-                </a>
-                <a href="/auth/facebook" class="btn btn-block btn-facebook btn-social">
-                    <i class="fa fa-facebook"></i>
-                    Sign in with Facebook
-                </a>
-                <a href="/auth/twitter" class="btn btn-block btn-twitter btn-social">
-                    <i class="fa fa-twitter"></i>
-                    Sign in with Twitter
-                </a>
-        </div>
-    </form>
-</div>
-
-
-
-
-
-
 
     <!-- script references -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>

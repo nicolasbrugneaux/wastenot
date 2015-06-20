@@ -1,8 +1,3 @@
-$( 'div.login--button' ).on( 'click', function(){
-    $( '.login--form' ).removeClass( 'hidden' );
-} );
-
-
 var $Nav = $( '#nav' );
 
 /*
