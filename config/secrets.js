@@ -21,7 +21,7 @@
 
 module.exports = {
 
-  db: process.env.MONGODB || '',
+  db: process.env.MONGOLAB_URI || process.env.MONGODB || '',
 
   sessionSecret: process.env.SESSION_SECRET || '',
 
