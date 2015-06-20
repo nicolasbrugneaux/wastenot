@@ -1,9 +1,9 @@
 {
-  "name": "waste not",
+  "name": "waste-not",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicolasbrugneaux/wastenot.git"
+    "url": "https://github.com/nicolasbrugneaux/wastenot/"
   },
   "scripts": {
     "start": "node app.js",
@@ -33,8 +33,7 @@
     "mongoose": "^4.0.5",
     "morgan": "^1.6.0",
     "multer": "^0.1.8",
-    "node-foursquare": "^0.3.0",
-    "node-linkedin": "^0.3.9",
+    "nodemailer": "^1.3.4",
     "passport": "^0.2.2",
     "passport-facebook": "^2.0.0",
     "passport-google-oauth": "^0.2.0",
