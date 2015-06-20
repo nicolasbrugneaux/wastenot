@@ -1,27 +1,203 @@
-extends layout
-
-block content
-  h1 Waste Not
-  p.lead One's man leftovers is another one's rightovers.
-  hr
-  .row
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+doctype html
+html(lang="en")
+  head
+    meta(http-equiv="content-type", content="text/html; charset=UTF-8")
+    meta(charset="utf-8")
+    title Waste Not
+    meta(name="generator", content="Bootply")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    link(href="css/bootstrap.min.css", rel="stylesheet")
+    //if lt IE 9
+      script(src="//html5shim.googlecode.com/svn/trunk/html5.js")
+    link(href="css/styles.css", rel="stylesheet")
+  body
+    #wrap
+      header.masthead
+        .container
+          .row
+            .col-sm-6
+              h1
+                | Waste Not
+                p.lead
+                  | Feed people not landfills
+            .home__buttons
+              div Log In
+              div Create an Account
+      // Fixed navbar
+      #nav.navbar.navbar-custom.navbar-inverse.navbar-static-top
+        .container
+          .navbar-header
+            button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav.nav-justified
+              li
+                a(href="#") Home
+              li.active
+                a(href="#section1")
+                  strong Big Brand
+              li
+                a(href="#section2") Product
+              li
+                a(href="#section3") News
+              li
+                a(href="#section4") About
+              li
+                a(href="#section5") Contact
+          // /.nav-collapse
+        // /.container
+      // /.navbar
+      // Begin page content
+      // <div class="divider" id="section1"></div>
+      .container
+        .col-sm-10.col-sm-offset-1
+          .page-header.text-center
+            div djhbhijv
+            .recipe--search__wrapper
+              textarea.recipe--search
+              .home__buttons
+                div Advanced Search
+                div Find a Recipe
+            h1 Sticky Footer with Fly-in Navbar
+          p.lead.text-center
+            | Twitter Bootstrap is a front-end toolkit to rapidly build web applications.
+          p.text-center
+            | Bootstrap is a framework that uses some of the latest browser techniques to provide you with stylish typography, navigation, buttons, tables, etc. One of the primary changes in Bootstrap 3 is an emphasis on Mobile-First responsive design. The goal is to elevate the mobile experience to a first-class citizen of the design process, because several billion mobile users is quite a large market to tap into. So, sites built with the current Bootstrap version target mobile devices and scale for larger screens depending on screen size.
+      #section2.divider
+      section.bg-cover.bg-1
+        .col-sm-6.col-sm-offset-3.text-center
+          h2(style="padding:20px;background-color:rgba(5,5,5,.8)") Try and Tweak Different Layouts
+      .divider
+      #section3.container
+        .col-sm-8.col-sm-offset-2.text-center
+          h1 Mobile-first + Responsive
+          p
+            | Instead of creating a unique version of the webpage for each desktop, mobile &#38; tablet, you can now create one design that works on all devices, browsers &#38; resolutions. Your designs will be future ready when a new table or phone size comes in the market, your designs will adapt itself and fit to the new screen size.
+          hr
+          img.img-responsive(src="/assets/example/bg_smartphones.jpg")
+          hr
+        // /col
+      // /container
+      .divider
+      section#section4.bg-cover.bg-3
+        .col-sm-6.col-sm-offset-3.text-center
+          h2(style="padding:20px;background-color:rgba(5,5,5,.8)") Leverage Snippets &#38; Examples
+      .continer.bg-4
+        .row
+          .col-sm-4.col-xs-6
+            .panel.panel-default
+              div
+                img.img-responsive(src="//placehold.it/620X250/565656/eee")
+              .panel-body
+                p.lead Hacker News
+                p 120k Followers, 900 Posts
+                p
+                  img(src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg", width="28px", height="28px")
+            // /panel
+          // /col
+          .col-sm-4.col-xs-6
+            .panel.panel-default
+              .panel-thumbnail
+                img.img-responsive(src="//placehold.it/620X250/ffcc33/444")
+              .panel-body
+                p.lead Bootstrap Templates
+                p 902 Followers, 88 Posts
+                p
+                  img(src="https://lh5.googleusercontent.com/-AQznZjgfM3E/AAAAAAAAAAI/AAAAAAAAABA/WEPOnkQS_20/s28-c-k-no/photo.jpg", width="28px", height="28px")
+            // /panel
+          // /col
+          .col-sm-4.col-xs-6
+            .panel.panel-default
+              .panel-thumbnail
+                img.img-responsive(src="//placehold.it/620X250/f16251/444")
+              .panel-body
+                p.lead Social Media
+                p 19k Followers, 789 Posts
+                p
+                  img(src="https://lh4.googleusercontent.com/-eSs1F2O7N1A/AAAAAAAAAAI/AAAAAAAAAAA/caHwQFv2RqI/s28-c-k-no/photo.jpg", width="28px", height="28px")
+                  img(src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg", width="28px", height="28px")
+            // /panel
+          // /col
+        // /row
+      // /container
+      #section5.divider
+      .row
+        h1.text-center Where In The World?
+        #map-canvas
+        hr
+        .col-sm-8
+          .row.form-group
+            .col-xs-3
+              input#firstName.form-control(type="text", name="firstName", placeholder="First Name", required="")
+            .col-xs-3
+              input#middleName.form-control(type="text", name="firstName", placeholder="Middle Name", required="")
+            .col-xs-4
+              input#lastName.form-control(type="text", name="lastName", placeholder="Last Name", required="")
+          .row.form-group
+            .col-xs-5
+              input.form-control(type="email", name="email", placeholder="Email", required="")
+            .col-xs-5
+              input.form-control(type="email", name="phone", placeholder="Phone", required="")
+          .row.form-group
+            .col-xs-10
+              input.form-control(type="homepage", placeholder="Website URL", required="")
+          .row.form-group
+            .col-xs-10
+              button.btn.btn-default.pull-right Contact Us
+        .col-sm-3.pull-right
+          address
+            strong Iatek, LLC.
+            br
+            | 795 Folsom Ave, Suite 600
+            br
+            | Newport, RI 94107
+            br
+            | P: (123) 456-7890
+          address
+            strong Email Us
+            br
+            a(href="mailto:#") first.last@example.com
+      // /row
+      .container
+        .col-sm-8.col-sm-offset-2.text-center
+          h2 Beautiful Bootstrap Templates
+          hr
+          h4
+            | We love templates. We love Bootstrap.
+          p
+            | Get more free templates like this at the
+            a(href="http://bootply.com") Bootstrap Playground
+            | , Bootply.
+          hr
+          ul.list-inline.center-block
+            li
+              a(href="http://facebook.com/bootply")
+                img(src="/assets/example/soc_fb.png")
+            li
+              a(href="http://twitter.com/bootply")
+                img(src="/assets/example/soc_tw.png")
+            li
+              a(href="http://google.com/+bootply")
+                img(src="/assets/example/soc_gplus.png")
+            li
+              a(href="http://pinterest.com/in1")
+                img(src="/assets/example/soc_pin.png")
+        // /col
+      // /container
+    // /wrap
+    #footer
+      .container
+        p.text-muted
+          | This Bootstrap Example courtesy
+          a(href="http://www.bootply.com") Bootply.com
+    ul.nav.pull-right.scroll-top
+      li
+        a(href="#", title="Scroll to top")
+          i.glyphicon.glyphicon-chevron-up
+    // script references
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js")
+    script(src="js/bootstrap.min.js")
+    script(src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed")
+    script(src="js/scripts.js")
