@@ -1,7 +1,3 @@
-import $ from 'jquery';
-import Bacon from 'baconjs';
-$.fn.asEventStream = Bacon.$.asEventStream;
-
 const $searchTextArea = $( '.js-recipe--search' );
 const $searchButton = $( '.js-recipe--search--button' );
 const $searchAdvanced = $( '.js-recipe--search--advanced' );
