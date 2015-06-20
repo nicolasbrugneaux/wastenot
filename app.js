@@ -88,12 +88,10 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
   if (/api/i.test(req.path)) req.session.returnTo = '/';
 
-console.log( req.secure );
-  if( req.secure || req.hostname === 'localhost' )
-  {
-      return next();
+  if( req.headers['x-forwarded-proto'] === 'https' || req.hostname === 'localhost' ) {
+    return next();
   }
-  res.redirect('https://'+req.hostname + req.url);
+  res.redirect( 'https://' + req.hostname + req.url );
 } );
 
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
