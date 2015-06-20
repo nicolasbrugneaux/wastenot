@@ -8,6 +8,7 @@ var Twit = require('twit');
 var twilio = require('twilio')(secrets.twilio.sid, secrets.twilio.token);
 var paypal = require('paypal-rest-sdk');
 var _ = require('lodash');
+var recipes = require('./api/recipes');
 
 /**
  * POST /api/twitter
