@@ -197,6 +197,12 @@ const displayResults = recipes =>
         let invite = false;
         let amount = 0;
 
+        $( '.label' ).addClass( 'disabled--label' );
+        labels.removeClass( 'disabled--label' );
+
+        $( '.js-recipe--checkout' ).addClass( 'disabled' );
+        btn.removeClass( 'disabled' );
+
         labels.css( 'cursor', 'pointer' );
         labels.addClass( 'label-info' );
         labels.removeClass( 'label-default' );
