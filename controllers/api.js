@@ -9,7 +9,9 @@ var paypal = require('paypal-rest-sdk');
 var _ = require('lodash');
 var sms = require('./api/sms');
 var recipes = require('./api/recipes');
+var cart = require('./api/cart');
 
 exports.sms = sms;
 exports.recipes = recipes;
+exports.cart = cart;
 
