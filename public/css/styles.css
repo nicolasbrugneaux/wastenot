@@ -18,6 +18,13 @@ html, body
 }
 
 
+.disabled
+{
+    pointer-events:                 none;
+    background-color:               #999999;
+}
+
+
 .row
 {
     margin-left:                    0px;
