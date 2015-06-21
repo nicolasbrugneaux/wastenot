@@ -136,8 +136,9 @@ header .dropdown-menu
 
 .recipe--search
 {
+    font-family:                    'Glyphicons';
     width:                          300px;
-    margin-top:                     5px;
+    margin-top:                     13px;
     height:                         90px;
     border:                         3px solid #2E2D2E;
     padding:                        5px;
@@ -200,6 +201,13 @@ header .home__buttons
 .login--button
 {
     margin-top:                     50px !important;
+}
+
+
+.dropdown-toggle
+{
+    background-color:               transparent;
+    border:                         none;    
 }
 
 

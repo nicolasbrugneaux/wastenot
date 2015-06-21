@@ -16,7 +16,7 @@
                 {{#unless user}}
                 <div class="login--button" data-toggle="modal" data-target="#login--modal">Log In</div>
                 {{else}}
-                <div class="btn-group">
+                <div class="btn-group btn">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{user.profile.name}} <span class="caret"></span>
                   </button>
@@ -46,10 +46,6 @@
               <i class="fa fa-paypal"></i>
               Paypal
           </a>
-          <!-- <a href="/auth/facebook" class="btn btn-block btn-facebook btn-social">
-              <i class="fa fa-facebook"></i>
-              Facebook
-          </a> -->
           <a href="/auth/twitter" class="btn btn-block btn-twitter btn-social">
               <i class="fa fa-twitter"></i>
               Twitter
@@ -92,12 +88,8 @@
         <div>Enter your ingredients list seperated by a space, or just say what you have!</div>
         <textarea class="js-recipe--search recipe--search" required="required"></textarea>
         <div class="recipe--search__wrapper  home__buttons">
-            <div class="js-recipe--search--audio">
-                <img alt="Start" id="start_img"
-                src="//google.com/intl/en/chrome/assets/common/images/content/mic.gif">
-            </div>
-            <div class="js-recipe--search--advanced advanced">Advanced Search</div>
-            <div class="js-recipe--search--button search">Find a Recipe</div>
+            <div class="js-recipe--search--audio  recipe--search--audio  btn">&#xe301;</div>
+            <div class="js-recipe--search--advanced advanced  btn">Advanced Search</div>
         </div>
         <h1>Sticky Footer with Fly-in Navbar</h1>
     </div>
