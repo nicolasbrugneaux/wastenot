@@ -1,4 +1,5 @@
 import { speechListener } from './speech.js';
+import { levenshtein, fuzzyMatch } from './utils.js';
 
 const $searchAudio = $( '.js-recipe--search--audio' );
 const $searchTextArea = $( '.js-recipe--search' );
@@ -45,7 +46,7 @@ $searchAdvanced.bind( 'click', e => $searchOptions.toggleClass('hidden') );
 
 const displayResults = recipes =>
 {
-    const html = recipes.map( recipe =>
+    let html = recipes.map( recipe =>
     {
         const image = recipe.imageUrlsBySize[
             Object.keys( recipe.imageUrlsBySize ).reduce( ( pre, curr ) =>
@@ -56,17 +57,54 @@ const displayResults = recipes =>
         const name = recipe.recipeName;
         const rating = recipe.rating;
 
+        const existingIngredients = $searchTextArea.val().toLowerCase().trim().split(' ');
+
+        let missingIngredients = [];
+        existingIngredients.forEach( existing =>
+        {
+            missingIngredients = missingIngredients.concat(
+                fuzzyMatch( recipe.ingredients, existing ).filter( ingredient =>
+                {
+                    const _ingredient = ingredient.toLowerCase().trim();
+                    let largest, shortest;
+                    if ( _ingredient.length > existing.length )
+                    {
+                        largest = _ingredient;
+                        shortest = existing;
+                    }
+                    else
+                    {
+                        largest = existing;
+                        shortest = _ingredient;
+                    }
+
+                    const l = _ingredient === existing || largest.indexOf( shortest ) > -1;
+
+                    return !l;
+                } ) );
+        } );
+
+
+        const missingIngredientsString = missingIngredients.map( ingredient => {
+            return `<span class='label label-primary' style="display:inline-block">${ingredient}</span>`;
+        } ).join('&nbsp;');
+
         return (
         `<div class="col-sm-4 col-xs-6">
             <div class="panel panel-default">
               <div><img src="${image.replace('s90-', 's360-')}" class="img-responsive"></div>
+              <p>Missing ingredients</p>
+              <p>${missingIngredientsString}</p>
               <div class="panel-body">
                 <h4>${name}</h4>
+                <small><button class='btn btn-primary'>Buy missing ingredients</button></small>
               </div>
             </div>
           </div>`
         );
     } );
+
+    html = html.slice( 0, ( Math.floor( ( html.length - 1 ) / 3 ) * 3 ) - 1 );
 
     $searchResults.html( $( html.join( '' ) ) );
 };
