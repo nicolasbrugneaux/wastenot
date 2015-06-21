@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
-
+@font-face{font-family:'Glyphicons';src:url('../fonts/glyphicons.eot');src:url('../fonts/glyphicons.eot?#iefix') format('embedded-opentype'),url('../fonts/glyphicons.woff') format('woff'),url('../fonts/glyphicons.ttf') format('truetype'),url('../fonts/glyphicons.svg#glyphicons_halflingsregular') format('svg')}
 
 html, body 
 {
@@ -93,7 +93,7 @@ header h1, header h2, header h3 a, header a, header a:hover
 header h3 
 {
     font-family:                    'Kreon', serif;
-    background:                     #ffcc33;
+    background:                     #16A453;
     padding:                        10px;
     border-radius:                  3px;
     font-size:                      34px;
@@ -104,7 +104,7 @@ header h3
 header .dropdown-menu 
 {
     top:                            74px;
-    background:                     #ffcc33;
+    background:                     #16A453;
     border-width:                   0;
 }
 
@@ -181,7 +181,7 @@ header .home__buttons
 .home__buttons div
 {
     padding:                        10px;
-    background-color:               #FFCC33;
+    background-color:               #16A453;
     width:                          200px;
     float:                          right;
     margin-top:                     5px;
@@ -194,6 +194,12 @@ header .home__buttons
 .home__buttons div:first-child
 {
     margin-top:                     0;
+}
+
+
+.login--button
+{
+    margin-top:                     50px !important;
 }
 
 
@@ -241,16 +247,31 @@ h1
 }
 
 
-#footer > .container 
-{
-  
-}
-
 @media (min-width: 767px) {
   .navbar-nav.nav-justified > li
   {
         float:                      none;
   }
+}
+
+
+.waste--not__logo
+{
+    background:                 url('../img/waste-not.png') no-repeat 0 0; 
+    -webkit-background-size:    contain;
+    -moz-background-size:       contain;
+    -o-background-size:         contain;
+    background-size:            contain;
+    height:                     150px;
+    width:                      150px;    
+}
+
+
+.lead
+{
+    position:                   relative;
+    top:                        -100px;
+    left:                       200px;
 }
 
 
@@ -358,7 +379,7 @@ h1
     bottom:                     0;
     right:                      6%;
     z-index:                    100;
-    background:                 #ffcc33;
+    background:                 #16A453;
     font-size:                  24px;
     border-top-left-radius:     3px;
     border-top-right-radius:    3px;
@@ -434,13 +455,3 @@ section
     display:                    none !important;
 }
 
-
-.login--form
-{
-    position:                   fixed;
-    top:                        100px;
-    left:                       25%;
-    background-color:           #fff;
-    border:                     #000 2px solid;
-    width:                      50%;
-}
