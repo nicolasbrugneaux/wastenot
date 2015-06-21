@@ -1,5 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
-@font-face{font-family:'Glyphicons';src:url('../fonts/glyphicons.eot');src:url('../fonts/glyphicons.eot?#iefix') format('embedded-opentype'),url('../fonts/glyphicons.woff') format('woff'),url('../fonts/glyphicons.ttf') format('truetype'),url('../fonts/glyphicons.svg#glyphicons_halflingsregular') format('svg')}
+
+@font-face{
+    font-family:'FontAwesome';
+    src:    url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+    src:    url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+            url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'),
+            url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'),
+            url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'),
+            url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg'); }
 
 html, body 
 {
@@ -78,7 +86,7 @@ header
 {
     background:                     url( '../img/food-rainbow.png' ) no-repeat center center fixed; 
     height:                         430px;
-    color:                          #000;
+    color:                          #fff;
 }
 
 
@@ -136,7 +144,6 @@ header .dropdown-menu
 
 .recipe--search
 {
-    font-family:                    'Glyphicons';
     width:                          300px;
     margin-top:                     13px;
     height:                         90px;
@@ -145,6 +152,19 @@ header .dropdown-menu
     overflow:                       auto;
     resize:                         none;
     height:                         100px;
+}
+
+
+.recipe--search--audio
+{
+    background:                     transparent url(../img/glyphicons_300_microphone-white.png) no-repeat center center;
+}
+
+
+.recipe--search--audio:before
+{
+    content:                        '\f130';
+    display:                        block;
 }
 
 
@@ -189,6 +209,7 @@ header .home__buttons
     cursor:                         pointer;
     font-size:                      20px;
     font-weight:                    bold;
+    color:                          #fff;
 }
 
 
@@ -217,10 +238,9 @@ header .home__buttons
 }
 
 
-.pull-right.hidden-xs
+.glyphicon
 {
-    position:                       relative;
-    top:                            -90px;
+    color:                          #fff;
 }
 
 

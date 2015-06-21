@@ -6,4 +6,3 @@ window.Bacon = Bacon;
 import './search/';
 import './speech';
 import './animations';
-import './map';
