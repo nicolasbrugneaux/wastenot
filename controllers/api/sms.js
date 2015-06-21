@@ -42,11 +42,17 @@ function getSMSRecipe( body, done ){
 	RecipeCache.findOne( { key: key, type: type }, function(err, cached) {
 
 		if (cached) {
-			getSMSRecipeDetails( cached.body.matches[0].id, function( recipe ){
 
-				done( recipe );
+			if ( cached.body && cached.body.matches && cached.body.matches[0] )
+			{
+				getSMSRecipeDetails( cached.body.matches[0].id, function( recipe ){
 
-			});
+					done( recipe );
+
+				});
+			} else {
+				done( 'Cache Error: ' + JSON.stringify( cached ));
+			}
 		} else {
 
 			request(options, function (error, response, body) {
@@ -66,11 +72,17 @@ function getSMSRecipe( body, done ){
 				});
 
 				cache.save(function(err) {
-					getSMSRecipeDetails( jsonBody.id, function(){
+					if ( jsonBody.matches && jsonBody.matches[0] )
+					{
+						getSMSRecipeDetails( jsonBody.matches[0].id, function( recipe ){
 
-						done('heelo');
+							done( recipe );
 
-					});
+						});
+					} else {
+						done( 'Save Error: ' + JSON.stringify( cached ));
+					}
+
 
 				});
 
@@ -111,6 +123,7 @@ function getSMSRecipeDetails( id, done ){
 					console.log('error', error, body);
 				}
 
+				console.log( response );
 				if ( response.statusCode == 404 )
 				{
 					console.log('404', error);
@@ -145,6 +158,7 @@ function getSMSRecipeDetails( id, done ){
 function formatSMS( jsonBody ){
 
 	var newline = '%0a';
+	newline = '\n';
 	var recipe = jsonBody.id + newline;
 
 	for (var i = 0; i < jsonBody.ingredientLines.length; i++) {
@@ -154,7 +168,7 @@ function formatSMS( jsonBody ){
 	if ( jsonBody.instructions ){
 		recipe += newline + jsonBody.instructions;
 	} else {
-		recipe += newline + 'Instructions: Mix it all together';
+		recipe += newline + 'Directions: Put all ingredients in a bowl. Mix thoroughly.';
 	}
 
 	return recipe;
