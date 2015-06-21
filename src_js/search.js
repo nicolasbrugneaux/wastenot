@@ -232,7 +232,7 @@ const displayResults = recipes =>
                 console.log( amount );
                 document.body.appendChild( image );
 
-                link.val( "https://www.sandbox.paypal.com/cgi-bin/webscr?" +
+                link.val( "https://www.paypal.com/cgi-bin/webscr?" +
                            "business=" + escape("nicolas.brugneaux@gmail.com") + "&amp;" +
                            "cmd=_xclick&amp;currency_code=EUR&amp;" +
                            "amount=" + escape(amount) + "&amp;" +
