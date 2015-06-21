@@ -1,91 +1,94 @@
 {{#extend "body"}}
 
-<div class="page-header">
-  <h3>Profile Information</h3>
-</div>
-<form action="/account/profile" method="POST" class="form-horizontal">
-  <input type="hidden" name="_csrf" value="{{_csrf}}"/>
-  <div class="form-group">
-    <label for="email" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-4">
-      <input type="email" name="email" id="email" value="{{user.email}}" class="form-control"/>
+<div class="accounts--page">
+    <div class="page-header">
+        <h3>Profile Information</h3>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="name" class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-4">
-      <input type="text" name="name" id="name" value="{{user.profile.name}}" class="form-control"/>
+    <form action="/account/profile" method="POST" class="form-horizontal">
+        <input type="hidden" name="_csrf" value="{{_csrf}}"/>
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-4">
+                <input type="email" name="email" id="email" value="{{user.email}}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-4">
+                <input type="text" name="name" id="name" value="{{user.profile.name}}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Phone</label>
+            <div class="col-sm-4">
+                <input type="text" name="phone" id="phone" value="{{user.profile.phone}}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location" class="col-sm-2 control-label">Location</label>
+            <div class="col-sm-4">
+                <input type="text" name="location" id="location" value="{{user.profile.location}}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn btn-primary"><i class="fa fa-pencil"></i>Update Profile</button>
+            </div>
+        </div>
+    </form>
+    <div class="page-header">
+      <h3>Change Password</h3>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="name" class="col-sm-2 control-label">Phone</label>
-    <div class="col-sm-4">
-      <input type="text" name="phone" id="phone" value="{{user.profile.phone}}" class="form-control"/>
+    <form action="/account/password" method="POST" class="form-horizontal">
+        <input type="hidden" name="_csrf" value="{{_csrf}}"/>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">New Password</label>
+            <div class="col-sm-4">
+                <input type="password" name="password" id="password" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+            <div class="col-sm-4">
+                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-4">
+                <button type="submit" class="btn btn btn-primary"><i class="fa fa-lock"></i>Change Password</button>
+            </div>
+        </div>
+    </form>
+    <div class="page-header">
+        <h3>Delete Account</h3>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="location" class="col-sm-2 control-label">Location</label>
-    <div class="col-sm-4">
-      <input type="text" name="location" id="location" value="{{user.profile.location}}" class="form-control"/>
+    <p>You can delete your account, but keep in mind this action is irreversible.</p>
+    <form action="/account/delete" method="POST">
+        <input type="hidden" name="_csrf" value="{{_csrf}}"/>
+        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>Delete my account</button>
+    </form>
+    <div class="page-header">
+        <h3>Linked Accounts</h3>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-4">
-      <button type="submit" class="btn btn btn-primary"><i class="fa fa-pencil"></i>Update Profile</button>
-    </div>
-  </div>
-</form>
-<div class="page-header">
-  <h3>Change Password</h3>
-</div>
-<form action="/account/password" method="POST" class="form-horizontal">
-  <input type="hidden" name="_csrf" value="{{_csrf}}"/>
-  <div class="form-group">
-    <label for="password" class="col-sm-3 control-label">New Password</label>
-    <div class="col-sm-4">
-      <input type="password" name="password" id="password" class="form-control"/>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
-    <div class="col-sm-4">
-      <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"/>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-4">
-      <button type="submit" class="btn btn btn-primary"><i class="fa fa-lock"></i>Change Password</button>
-    </div>
-  </div>
-</form>
-<div class="page-header">
-  <h3>Delete Account</h3>
-</div>
-<p>You can delete your account, but keep in mind this action is irreversible.</p>
-<form action="/account/delete" method="POST">
-  <input type="hidden" name="_csrf" value="{{_csrf}}"/>
-  <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>Delete my account</button>
-</form>
-<div class="page-header">
-  <h3>Linked Accounts</h3>
-</div>
-<!--
-{{#if user.facebook}}
-    <p><a href="/account/unlink/facebook" class="text-danger">Unlink your Facebook account</a></p>
-{{else}}
-    <p><a href="/auth/facebook">Link your Facebook account</a></p>
-{{/if}} -->
+    <!--
+    {{#if user.facebook}}
+        <p><a href="/account/unlink/facebook" class="text-danger">Unlink your Facebook account</a></p>
+    {{else}}
+        <p><a href="/auth/facebook">Link your Facebook account</a></p>
+    {{/if}} -->
 
-{{#if user.twitter}}
-    <p><a href="/account/unlink/twitter" class="text-danger">Unlink your Twitter account</a></p>
-{{else}}
-    <p><a href="/auth/twitter">Link your Twitter account</a></p>
-{{/if}}
+    {{#if user.twitter}}
+        <p><a href="/account/unlink/twitter" class="text-danger">Unlink your Twitter account</a></p>
+    {{else}}
+        <p><a href="/auth/twitter">Link your Twitter account</a></p>
+    {{/if}}
 
-{{#if user.paypal}}
-    <p><a href="/account/unlink/paypal" class="text-danger">Unlink your Paypal account</a></p>
-{{else}}
-    <p><a href="/auth/paypal">Link your Paypal account</a></p>
-{{/if}}
+    {{#if user.paypal}}
+        <p><a href="/account/unlink/paypal" class="text-danger">Unlink your Paypal account</a></p>
+    {{else}}
+        <p><a href="/auth/paypal">Link your Paypal account</a></p>
+    {{/if}}
+
+</div>
 
 {{/extend}}

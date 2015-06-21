@@ -466,13 +466,24 @@ section
 }
 
 
+.tech--slide
+{
+    text-align:                 center;
+}
+
+
+.tech--slide__img
+{
+    width:                      85%;
+}
+
+
 .bg-cover
 {
     background:                 url('') no-repeat center center fixed; 
     -webkit-background-size:    cover;
     -moz-background-size:       cover;
     -o-background-size:         cover;
-    background-size:            cover;
 }
 
 
