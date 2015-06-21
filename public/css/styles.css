@@ -20,8 +20,19 @@ html, body
 
 .disabled
 {
-    pointer-events:                 none;
-    background-color:               #999999;
+    /*pointer-events:                 none;*/
+    background-color:               #ccc !important;
+    border-color:                   #428BCA;
+    color:                          #428BCA;
+}
+
+
+.disabled--label
+{
+    /*pointer-events:                 none;*/
+    background-color:               #ccc !important;
+    border-color:                   #999999;
+    color:                          #999999;
 }
 
 

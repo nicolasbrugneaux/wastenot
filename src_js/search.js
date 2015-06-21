@@ -159,6 +159,9 @@ const displayResults = recipes =>
         const btn = $( event.target );
         const labels = btn.parent().parent().find( '.label' );
 
+        $( '.label' ).addClass( 'disabled--label' );
+        labels.removeClass( 'disabled--label' );
+                
         $( '.js-recipe--checkout' ).addClass( 'disabled' );
         btn.removeClass( 'disabled' );
 
