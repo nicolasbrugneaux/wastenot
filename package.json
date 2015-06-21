@@ -63,7 +63,8 @@
     "mocha": "^2.2.5",
     "multiline": "^1.0.2",
     "supertest": "^1.0.1",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "twilio": "^2.2.1"
   },
   "license": "MIT"
 }

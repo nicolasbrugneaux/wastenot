@@ -121,7 +121,7 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
 /**
  * API examples routes.
  */
-app.post('/api/twilio', apiController.postTwilio);
+app.get('/api/twilio/inboundsms', apiController.sms.inboundSMS);
 
 /**
  * Yummly routes.
