@@ -232,9 +232,22 @@ header .home__buttons
 }
 
 
-.login--button
+.paypal--login
 {
-    margin-top:                     17px !important;
+    margin-top:                     5px;
+    color:                          transparent !important;  
+    padding:                        35px 85px 35px 85px;
+    border:                         2px #279DD5 solid;
+    border-radius:                  5px;
+    background:                     #fff url(../img/paypalLogin.png) no-repeat center center !important;
+    height:                         70px;
+    width:                          140px;
+}
+
+
+.paypal--login:hover
+{
+    border-color:                   #1A94D2;
 }
 
 
