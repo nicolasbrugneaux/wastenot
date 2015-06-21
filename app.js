@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 var express = require('express');
+var hbs = require('hbs');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
 var favicon = require('serve-favicon');
@@ -55,6 +56,28 @@ mongoose.connection.on('error', function() {
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+var blocks = {};
+
+hbs.registerHelper('extend', function(name, context) {
+    var block = blocks[name];
+    if (!block) {
+        block = blocks[name] = [];
+    }
+
+    block.push(context.fn(this)); // for older versions of handlebars, use block.push(context(this));
+});
+
+hbs.registerHelper('block', function(name) {
+    var val = (blocks[name] || []).join('\n');
+
+    // clear the block
+    blocks[name] = [];
+    return val;
+});
+
+hbs.registerPartials(__dirname + '/views/partials');
+
 app.use(compress());
 app.use(connectAssets({
   paths: [path.join(__dirname, 'public/css'), path.join(__dirname, 'public/js')]
@@ -100,7 +123,6 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
  * Primary app routes.
  */
 app.get('/', homeController.index);
-app.get( '/audio', function(req, res) { res.render('audio' ); } );
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);
@@ -121,7 +143,7 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
 /**
  * API examples routes.
  */
-app.post('/api/twilio', apiController.postTwilio);
+app.get('/api/twilio/inboundsms', apiController.sms.inboundSMS);
 
 /**
  * Yummly routes.
@@ -133,10 +155,10 @@ app.get('/api/recipe', apiController.recipes.getRecipe);
 /**
  * OAuth authentication routes. (Sign in)
  */
-app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
-  res.redirect(req.session.returnTo || '/');
-});
+// app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
+// app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
+//   res.redirect(req.session.returnTo || '/');
+// });
 // app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
 // app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
 //   res.redirect(req.session.returnTo || '/');

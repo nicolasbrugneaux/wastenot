@@ -56,47 +56,47 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
 /**
  * Sign in with Facebook.
  */
-passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, refreshToken, profile, done) {
-  if (req.user) {
-    User.findOne({ facebook: profile.id }, function(err, existingUser) {
-      if (existingUser) {
-        req.flash('errors', { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
-        done(err);
-      } else {
-        User.findById(req.user.id, function(err, user) {
-          user.facebook = profile.id;
-          user.tokens.push({ kind: 'facebook', accessToken: accessToken });
-          user.profile.name = user.profile.name || profile.displayName;
-          user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
-          user.save(function(err) {
-            req.flash('info', { msg: 'Facebook account has been linked.' });
-            done(err, user);
-          });
-        });
-      }
-    });
-  } else {
-    User.findOne({ facebook: profile.id }, function(err, existingUser) {
-      if (existingUser) return done(null, existingUser);
-      User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
-        if (existingEmailUser) {
-          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Facebook manually from Account Settings.' });
-          done(err);
-        } else {
-          var user = new User();
-          user.email = profile._json.email;
-          user.facebook = profile.id;
-          user.tokens.push({ kind: 'facebook', accessToken: accessToken });
-          user.profile.name = profile.displayName;
-          user.profile.location = (profile._json.location) ? profile._json.location.name : '';
-          user.save(function(err) {
-            done(err, user);
-          });
-        }
-      });
-    });
-  }
-}));
+// passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, refreshToken, profile, done) {
+//   if (req.user) {
+//     User.findOne({ facebook: profile.id }, function(err, existingUser) {
+//       if (existingUser) {
+//         req.flash('errors', { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
+//         done(err);
+//       } else {
+//         User.findById(req.user.id, function(err, user) {
+//           user.facebook = profile.id;
+//           user.tokens.push({ kind: 'facebook', accessToken: accessToken });
+//           user.profile.name = user.profile.name || profile.displayName;
+//           user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+//           user.save(function(err) {
+//             req.flash('info', { msg: 'Facebook account has been linked.' });
+//             done(err, user);
+//           });
+//         });
+//       }
+//     });
+//   } else {
+//     User.findOne({ facebook: profile.id }, function(err, existingUser) {
+//       if (existingUser) return done(null, existingUser);
+//       User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
+//         if (existingEmailUser) {
+//           req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Facebook manually from Account Settings.' });
+//           done(err);
+//         } else {
+//           var user = new User();
+//           user.email = profile._json.email;
+//           user.facebook = profile.id;
+//           user.tokens.push({ kind: 'facebook', accessToken: accessToken });
+//           user.profile.name = profile.displayName;
+//           user.profile.location = (profile._json.location) ? profile._json.location.name : '';
+//           user.save(function(err) {
+//             done(err, user);
+//           });
+//         }
+//       });
+//     });
+//   }
+// }));
 
 // Sign in with Twitter.
 
@@ -124,7 +124,7 @@ passport.use(new TwitterStrategy(secrets.twitter, function(req, accessToken, tok
     User.findOne({ twitter: profile.id }, function(err, existingUser) {
       if (existingUser) return done(null, existingUser);
       var user = new User();
-      user.email = '';
+      user.email = profile.twitter + '@twitter.com';
       user.twitter = profile.id;
       user.tokens.push({ kind: 'twitter', accessToken: accessToken, tokenSecret: tokenSecret });
       user.profile.name = profile.displayName;
@@ -162,7 +162,7 @@ passport.use(new PaypalStrategy(secrets.paypal, function(req, accessToken, token
     User.findOne({ paypal: profile.id }, function(err, existingUser) {
       if (existingUser) return done(null, existingUser);
       var user = new User();
-      user.email = '';
+      user.email = profile.displayName.toLowerCase().split( ' ' ).join('.') + '@paypal.com';
       user.paypal = profile.id;
       user.tokens.push({ kind: 'paypal', accessToken: accessToken, tokenSecret: tokenSecret });
       user.profile.name = profile.displayName;

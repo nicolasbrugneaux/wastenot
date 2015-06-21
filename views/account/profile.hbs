@@ -1,24 +1,4 @@
-{{#if messages}}
-    {{#each messages.success}}
-    <div class="alert alert-success alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      {{this.msg}}
-    </div>
-    {{/each}}
-    {{#each messages.warning}}
-    <div class="alert alert-warning alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      {{this.msg}}
-    </div>
-    {{/each}}
-    {{#each messages.danger}}
-    <div class="alert alert-danger alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      {{this.msg}}
-    </div>
-    {{/each}}
-{{/if}}
-
+{{#extend "body"}}
 
 <div class="page-header">
   <h3>Profile Information</h3>
@@ -83,12 +63,12 @@
 <div class="page-header">
   <h3>Linked Accounts</h3>
 </div>
-
+<!--
 {{#if user.facebook}}
     <p><a href="/account/unlink/facebook" class="text-danger">Unlink your Facebook account</a></p>
 {{else}}
     <p><a href="/auth/facebook">Link your Facebook account</a></p>
-{{/if}}
+{{/if}} -->
 
 {{#if user.twitter}}
     <p><a href="/account/unlink/twitter" class="text-danger">Unlink your Twitter account</a></p>
@@ -101,3 +81,5 @@
 {{else}}
     <p><a href="/auth/paypal">Link your Paypal account</a></p>
 {{/if}}
+
+{{/extend}}
