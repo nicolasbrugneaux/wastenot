@@ -1,0 +1,56 @@
+{{#extend "body"}}
+<input type="text" id="item" />
+
+
+<button id="start_button" onclick="startButton(event)" style="display: inline-block;">Start</button>
+<button id="start_button" onclick="stopButton(event)" style="display: inline-block;">Stop</button>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+
+function startButton(e){
+
+	var element = document.getElementById('item');
+	var item = element.value;
+
+	console.log(item);
+	$.get('/api/cart/add?item=' + item, function(res){
+
+		console.log( 'res', res );
+		console.log( 'url', res.url );
+
+	    var element = document.createElement('img');
+	    element.src = res.url;
+	    document.body.appendChild( element );
+	});
+
+	// // var item = "http://berlin.bringmeister.de/checkout/cart/add/uenc/aHR0cDovL2Jlcmxpbi5icmluZ21laXN0ZXIuZGU6ODA4MC9icmluZ21laXN0ZXIvaW5kZXgvd2Vla2x5Lw,,/product/58470/?surcharges_unit%5B58470%5D=61&qty=1";
+	// var image = 'http://www.w3schools.com/html/pic_mountain.jpg';
+
+
+ //    var element = document.createElement('img');
+ //    element.src = item;
+ //    document.body.appendChild( element );
+
+}
+
+function stopButton(event){
+	var url = 'http://berlin.bringmeister.de/zip/zip/validate/?code=10999';
+
+    var element = document.createElement('img');
+    element.src = url;
+    document.body.appendChild( element );
+	// $.get('http://berlin.bringmeister.de/zip/zip/validate/?code=10999', function(res){
+
+	// 	console.log( 'res', res );
+	// 	console.log( 'url', res.url );
+
+	//     var element = document.createElement('img');
+	//     element.src = res.url;
+	//     document.body.appendChild( element );
+	// });
+}
+
+</script>
+{{/extend}}
