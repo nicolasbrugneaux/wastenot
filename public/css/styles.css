@@ -381,6 +381,15 @@ section
 }
 
 
+.global--food--waste
+{
+    background:                 url('../img/global-food-loss.png') no-repeat center 0; 
+    height:                     700px;
+    width:                      100%;
+    margin-left:                0;
+}
+
+
 .bg-cover
 {
     background:                 url('') no-repeat center center fixed; 
@@ -393,7 +402,11 @@ section
 
 .bg-1 
 {
-    background-image:           url('http://www.bootply.com/assets/example/bg_4.jpg'); 
+    background-image:           url('../img/food-trash.png'); 
+    -webkit-background-size:    100%;
+    -moz-background-size:       100%;
+    -o-background-size:         100%;
+    background-size:            100%;
 }
 
 
