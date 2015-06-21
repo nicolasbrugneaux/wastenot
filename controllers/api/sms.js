@@ -195,8 +195,11 @@ exports.sendSMS = function(req, res, next){
 	        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
 	        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
 
-	        res.send(responseData.from + '-' + responseData.to + '-' + responseData.body); // outputs "+14506667788"
-	        next()
+	        // res.send(responseData.from + '-' + responseData.to + '-' + responseData.body); // outputs "+14506667788"
+	        // next()
+            req.flash( 'success', { msg: 'Your message has been sent to ' +
+                responseData.to + '.' } );
+            res.redirect( '/' );
 
 	    }
 	    else
@@ -205,7 +208,4 @@ exports.sendSMS = function(req, res, next){
 	    }
 	});
 
-}
-
-
-
+};
