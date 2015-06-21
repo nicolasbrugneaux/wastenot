@@ -257,6 +257,19 @@ header .home__buttons
 }
 
 
+.copy
+{
+    font-size:                      1.3rem;
+}
+
+
+.bg-1 h2, .bg-3 h2
+{
+    padding:                        20px;
+    background-color:               rgba( 5, 5, 5, 0.8);
+}
+
+
 h1 
 {
     font-size:                      50px;
