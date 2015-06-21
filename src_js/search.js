@@ -238,11 +238,8 @@ const displayResults = recipes =>
                 console.log( amount );
                 document.body.appendChild( image );
 
-                link.val( "https://www.paypal.com/cgi-bin/webscr?" +
-                           "business=" + escape("nicolas.brugneaux@gmail.com") + "&amp;" +
-                           "cmd=_xclick&amp;currency_code=EUR&amp;" +
-                           "amount=" + escape(amount) + "&amp;" +
-                           "item_name=" + escape("Invitation from Nicolas Brugneaux for dinner."));
+                link.val( "Nicolas Brugneaux invite you for a shared dinner. You shall split the amount, click here to pay them, directly without hassle with Paypal. https://www.paypal.com/cgi-bin/webscr?business=nicolas.brugneaux@gmail.com&cmd=_xclick&currency_code=USD&amount=" +
+                    amount/2 + "&item_name=Invitation%20from%20Nicolas%20for%20a%20shared%20dinner" );
 
                 inviteAmount.text(amount);
                 inviteDiv.removeClass( 'hidden');

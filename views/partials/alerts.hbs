@@ -1,4 +1,13 @@
 {{#if messages}}
+    <style media="screen">
+        .alert {
+            position: fixed;
+            width: 80%;
+            margin-left: 10%;
+            z-index: 10;
+            margin-top: 20px;
+        }
+    </style>
     {{#each messages.success}}
     <div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
