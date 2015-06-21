@@ -3,6 +3,7 @@ import Bacon from 'baconjs';
 $.fn.asEventStream = Bacon.$.asEventStream;
 window.Bacon = Bacon;
 
-import searchApp from './search/';
-import animations from './animations';
-import map from './map';
+import './search/';
+import './speech';
+import './animations';
+import './map';
