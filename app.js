@@ -146,6 +146,12 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
 app.get('/api/twilio/inboundsms', apiController.sms.inboundSMS);
 
 /**
+ * Bringmeister
+ */
+app.get('/api/cart/add', apiController.cart.add);
+app.get('/api/cart/edit', apiController.cart.edit);
+
+/**
  * Yummly routes.
  */
 app.get('/api/recipes', apiController.recipes.queryRecipes);
