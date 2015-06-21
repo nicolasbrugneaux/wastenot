@@ -60,28 +60,34 @@ const displayResults = recipes =>
         const existingIngredients = $searchTextArea.val().toLowerCase().trim().split(' ');
 
         let missingIngredients = [];
-        existingIngredients.forEach( existing =>
+        recipe.ingredients.forEach( ingredient =>
         {
-            missingIngredients = missingIngredients.concat(
-                fuzzyMatch( recipe.ingredients, existing ).filter( ingredient =>
+            const _ingredient = ingredient.toLowerCase().trim();
+
+            const shouldPush = existingIngredients.every( existing =>
+            {
+                let largest, shortest;
+
+                if ( _ingredient.length > existing.length )
                 {
-                    const _ingredient = ingredient.toLowerCase().trim();
-                    let largest, shortest;
-                    if ( _ingredient.length > existing.length )
-                    {
-                        largest = _ingredient;
-                        shortest = existing;
-                    }
-                    else
-                    {
-                        largest = existing;
-                        shortest = _ingredient;
-                    }
+                    largest = _ingredient;
+                    shortest = existing;
+                }
+                else
+                {
+                    largest = existing;
+                    shortest = _ingredient;
+                }
 
-                    const l = _ingredient === existing || largest.indexOf( shortest ) > -1;
+                const l = _ingredient === existing || largest.indexOf( shortest ) > -1;
 
-                    return !l;
-                } ) );
+                return !l;
+            } );
+
+            if ( shouldPush )
+            {
+                missingIngredients.push( _ingredient );
+            }
         } );
 
 
