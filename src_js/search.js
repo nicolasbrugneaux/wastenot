@@ -105,8 +105,38 @@ const displayResults = recipes =>
                 <h4>${name}</h4>
                 <small><button class='btn btn-primary js-recipe--checkout'>Buy missing ingredients</button></small>
                 <p style="margin-top:15px;">${missingIngredientsString}</p>
+                <div class="js-recipe--invite hidden">
+                <p>Total amout: <span class="js-recipe--invite-total"></span> euros</p>
+                <button class='btn btn-primary js-recipe--invite-btn' data-toggle='modal' data-target="#invite--modal">Invite a friend</button>
               </div>
             </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="invite--modal" tabindex="-1" role="dialog" aria-labelledby="invite--modal--label">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="invite--modal--label">Invite a friend for a meal</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="GET" action="/api/twilio/outboundsms">
+                    <div class="form-group">
+                        <p>Total amout: <span class="js-recipe--invite-total"></span> euros</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="phone" placeholder="Phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" class="js-paypal-link hidden form-control" name="body" placeholder="A message for your friend" required>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Invite your friend<span class="plural"></span></button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>`
         );
     } ).reduce( ( acc, span, index ) =>
@@ -129,7 +159,8 @@ const displayResults = recipes =>
         }
     }, '' );
 
-    $searchResults.html( $( html ) );
+    const fragment = $( html );
+    $searchResults.html( fragment );
 
     $( '.js-recipe--row' ).each( ( _, row ) =>
     {
@@ -158,10 +189,17 @@ const displayResults = recipes =>
     {
         const btn = $( event.target );
         const labels = btn.parent().parent().find( '.label' );
+        const inviteDiv = btn.parent().parent().find( '.js-recipe--invite' );
+        const inviteAmount = fragment.find( '.js-recipe--invite-total, #invite--modal .js-recipe--invite-total' );
+        const inviteBtn = inviteDiv.find( '.js-recipe--invite-btn' );
+        const link = $( '.js-paypal-link' );
+
+        let invite = false;
+        let amount = 0;
 
         $( '.label' ).addClass( 'disabled--label' );
         labels.removeClass( 'disabled--label' );
-                
+
         $( '.js-recipe--checkout' ).addClass( 'disabled' );
         btn.removeClass( 'disabled' );
 
@@ -170,6 +208,7 @@ const displayResults = recipes =>
         labels.removeClass( 'label-default' );
         labels.bind( 'click', _event =>
         {
+            invite = true;
             const $label = $( _event.target );
             $label.addClass( 'label-warning' );
             $label.removeClass( 'label-info' );
@@ -195,8 +234,21 @@ const displayResults = recipes =>
             $.get( '/api/cart/add?item=' + item, res =>
             {
                 image.src = res.url;
+                amount += parseFloat( res.price, 10 );
+                console.log( amount );
                 document.body.appendChild( image );
+
+                link.val( "Nicolas Brugneaux invite you for a shared dinner. You shall split the amount, click here to pay them, directly without hassle with Paypal. https://www.paypal.com/cgi-bin/webscr?business=nicolas.brugneaux@gmail.com&cmd=_xclick&currency_code=USD&amount=" +
+                    amount/2 + "&item_name=Invitation%20from%20Nicolas%20for%20a%20shared%20dinner" );
+
+                inviteAmount.text(amount);
+                inviteDiv.removeClass( 'hidden');
             } );
+        } );
+
+        inviteBtn.bind( 'click', _event =>
+        {
+
         } );
 
         btn.off( 'click' );
@@ -206,22 +258,9 @@ const displayResults = recipes =>
             labels.off( 'click' );
 
             window.open( 'http://berlin.bringmeister.de/checkout/cart/', "_blank" );
-            //
-            // labels.filter( 'label-success' ).each( el =>
-            // {
-            //     const item = $( el ).text()
-            //         .replace( 'fresh', '' )
-            //         .replace( 'sliced', '' )
-            //         .replace( ' ', '+' );
-            //
-            //     $.get('/api/cart/add?item=' + item, res =>
-            //     {
-            //         var element = document.createElement('img');
-            //         element.src = res.url;
-            //         document.body.appendChild( element );
-            //     });
-            // } );
         } );
+
+
     } );
 
 };

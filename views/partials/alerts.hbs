@@ -1,4 +1,13 @@
 {{#if messages}}
+    <style media="screen">
+        .alert {
+            position: fixed;
+            width: 80%;
+            margin-left: 10%;
+            z-index: 10;
+            margin-top: 20px;
+        }
+    </style>
     {{#each messages.success}}
     <div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -15,6 +24,14 @@
     <div class="alert alert-danger alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       {{this.msg}}
+    </div>
+    {{/each}}
+    {{#each messages.notification}}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      {{this.msg}}
+      <a class="btn btn-primary" href="/invitation/accept/{{this.id}}">Accept and pay him {{this.amount}} euros.</a>
+      <a class="btn btn-danger" href="/invitation/refuse/{{this.id}}">Refuse and eat another time with your friend.</a>
     </div>
     {{/each}}
 {{/if}}
