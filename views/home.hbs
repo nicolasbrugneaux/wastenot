@@ -12,11 +12,11 @@
                     </div>
                 </h1>
             </div>
-            <div class="home__buttons">
+            <div>
                 {{#unless user}}
                 <a class="paypal--login  login--button btn" href="/auth/paypal">login with paypal</a>
                 {{else}}
-                <div class="btn-group btn  login--button">
+                <div class="btn-group  login--button  home__buttons">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{user.profile.name}} <span class="caret"></span>
                   </button>

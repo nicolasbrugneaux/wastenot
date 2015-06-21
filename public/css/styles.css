@@ -20,7 +20,7 @@ html, body
 
 .disabled
 {
-    /*pointer-events:                 none;*/
+    pointer-events:                 none;
     background-color:               #ccc !important;
     border-color:                   #428BCA;
     color:                          #428BCA;
@@ -29,7 +29,7 @@ html, body
 
 .disabled--label
 {
-    /*pointer-events:                 none;*/
+    pointer-events:                 none;
     background-color:               #ccc !important;
     border-color:                   #999999;
     color:                          #999999;
@@ -230,7 +230,7 @@ header .home__buttons
 }
 
 
-.home__buttons div
+.home__buttons div, .home__buttons button
 {
     padding:                        10px;
     background-color:               #16A453;
@@ -241,6 +241,12 @@ header .home__buttons
     font-size:                      20px;
     font-weight:                    bold;
     color:                          #fff;
+}
+
+
+.home__buttons button
+{
+    font-size:                      1.2rem;
 }
 
 
