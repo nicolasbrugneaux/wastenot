@@ -84,8 +84,8 @@ h1, h2, h3, h4
 
 header 
 {
-    background:                     url( '../img/food-rainbow.png' ) no-repeat center center fixed; 
-    height:                         430px;
+    background:                     url( '../img/food-rainbow.png' ) no-repeat center 0 fixed; 
+    height:                         330px;
     color:                          #fff;
 }
 
@@ -161,6 +161,13 @@ header .dropdown-menu
 }
 
 
+.recipe--search--audio:hover
+{
+    background:                     transparent url(../img/glyphicons_300_microphone.png) no-repeat center center;
+    color:                          transparent;
+}
+
+
 .recipe--search--audio:before
 {
     content:                        '\f130';
@@ -227,7 +234,7 @@ header .home__buttons
 
 .login--button
 {
-    margin-top:                     50px !important;
+    margin-top:                     17px !important;
 }
 
 
@@ -301,11 +308,12 @@ h1
 }
 
 
-.lead
+.masthead .lead
 {
     position:                   relative;
-    top:                        -100px;
+    top:                        -130px;
     left:                       200px;
+    font-size:                  2rem;
 }
 
 
