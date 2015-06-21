@@ -14,9 +14,9 @@
             </div>
             <div class="home__buttons">
                 {{#unless user}}
-                <div class="login--button" data-toggle="modal" data-target="#login--modal">Log In</div>
+                <div class="login--button  btn" data-toggle="modal" data-target="#login--modal">Log In</div>
                 {{else}}
-                <div class="btn-group btn">
+                <div class="btn-group btn  login--button">
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{user.profile.name}} <span class="caret"></span>
                   </button>
@@ -173,15 +173,15 @@
 
 <div class="row">
 
-  <h1 class="text-center">Where In The World?</h1>
+  <!-- <h1 class="text-center">Where In The World?</h1> -->
 
-  <div id="map-canvas"></div>
+  <!-- <div id="map-canvas"></div> -->
 
   <hr>
 
   <div class="col-sm-8">
 
-      <div class="row form-group">
+      <!-- <div class="row form-group">
         <div class="col-xs-3">
           <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="">
         </div>
@@ -210,11 +210,11 @@
             <button class="btn btn-default pull-right">Contact Us</button>
           </div>
       </div>
-
+ -->
   </div>
   <div class="col-sm-3 pull-right">
 
-      <address>
+<!--       <address>
         <strong>Iatek, LLC.</strong><br>
         795 Folsom Ave, Suite 600<br>
         Newport, RI 94107<br>
@@ -224,14 +224,14 @@
       <address>
         <strong>Email Us</strong><br>
         <a href="mailto:#">first.last@example.com</a>
-      </address>
+      </address> -->
   </div>
 
 </div><!--/row-->
 
 <div class="container">
     <div class="col-sm-8 col-sm-offset-2 text-center">
-      <h2>Beautiful Bootstrap Templates</h2>
+      <!-- <h2>Beautiful Bootstrap Templates</h2>
 
       <hr>
       <h4>
@@ -245,7 +245,7 @@
         <li><a href="//google.com/+bootply"><img src="/assets/example/soc_gplus.png"></a></li>
         <li><a href="//pinterest.com/in1"><img src="/assets/example/soc_pin.png"></a></li>
       </ul>
-
+ -->
     </div><!--/col-->
 </div><!--/container-->
 
@@ -268,6 +268,5 @@
 {{/extend}}
 
 {{#extend "scripts"}}
-<script src="//maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
 <script src="js/main.js"></script>
 {{/extend}}
