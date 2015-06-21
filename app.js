@@ -145,6 +145,7 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
  * API examples routes.
  */
 app.get('/api/twilio/inboundsms', apiController.sms.inboundSMS);
+app.get('/api/twilio/outboundsms', apiController.sms.sendSMS);
 
 /**
  * Bringmeister
