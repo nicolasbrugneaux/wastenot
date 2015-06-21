@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
+@import url(https://fonts.googleapis.com/css?family=Kreon:400,700);
 
 @font-face{
     font-family:'FontAwesome';
@@ -9,7 +9,7 @@
             url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'),
             url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg'); }
 
-html, body 
+html, body
 {
     height:                         100%;
     /* The html and body elements cannot have any padding or margin. */
@@ -18,7 +18,7 @@ html, body
 }
 
 
-.row 
+.row
 {
     margin-left:                    0px;
     margin-right:                   0px;
@@ -26,7 +26,7 @@ html, body
 
 
 /* Wrapper for page content to push down footer */
-#wrap 
+#wrap
 {
     min-height:                     100%;
     height:                         auto !important;
@@ -39,7 +39,7 @@ html, body
 
 
 /* Set the fixed height of the footer here */
-#footer 
+#footer
 {
     height:                         60px;
     margin-top:                     50px;
@@ -51,46 +51,46 @@ html, body
 /* Custom page CSS
 -------------------------------------------------- */
 
-#wrap > .container 
+#wrap > .container
 {
     padding:                        60px 15px 0;
 }
 
 
-.container .credit 
+.container .credit
 {
     margin:                         20px 0;
 }
 
 
-#footer 
+#footer
 {
     background-color:               #414141;
 }
 
 
-#footer a 
+#footer a
 {
     color:                          #efefef;
 }
 
 
-h1, h2, h3, h4 
+h1, h2, h3, h4
 {
     font-family:                    'Kreon', serif;
     vertical-align:                 middle;
 }
 
 
-header 
+header
 {
-    background:                     url( '../img/food-rainbow.png' ) no-repeat center 0 fixed; 
+    background:                     url( '../img/food-rainbow.png' ) no-repeat center 0 fixed;
     height:                         330px;
     color:                          #fff;
 }
 
 
-header h1, header h2, header h3 a, header a, header a:hover 
+header h1, header h2, header h3 a, header a, header a:hover
 {
     color:                          #101010;
     font-weight:                    800;
@@ -98,7 +98,7 @@ header h1, header h2, header h3 a, header a, header a:hover
 }
 
 
-header h3 
+header h3
 {
     font-family:                    'Kreon', serif;
     background:                     #16A453;
@@ -109,7 +109,7 @@ header h3
 }
 
 
-header .dropdown-menu 
+header .dropdown-menu
 {
     top:                            74px;
     background:                     #16A453;
@@ -254,7 +254,7 @@ header .home__buttons
 .dropdown-toggle
 {
     background-color:               transparent;
-    border:                         none;    
+    border:                         none;
 }
 
 
@@ -283,19 +283,19 @@ header .home__buttons
 }
 
 
-h1 
+h1
 {
     font-size:                      50px;
 }
 
-#nav 
+#nav
 {
     width:                          100%;
     position:static;
     top:                            -32px;
 }
 
-#nav.affix 
+#nav.affix
 {
     position:                       fixed;
     top:                            0;
@@ -324,13 +324,13 @@ h1
 
 .waste--not__logo
 {
-    background:                 url('../img/waste-not.png') no-repeat 0 0; 
+    background:                 url('../img/waste-not.png') no-repeat 0 0;
     -webkit-background-size:    contain;
     -moz-background-size:       contain;
     -o-background-size:         contain;
     background-size:            contain;
     height:                     150px;
-    width:                      150px;    
+    width:                      150px;
 }
 
 
@@ -343,13 +343,13 @@ h1
 }
 
 
-.navbar-nav 
+.navbar-nav
 {
-    margin:                         1px 1px; 
-}  
-  
+    margin:                         1px 1px;
+}
 
-.navbar-custom 
+
+.navbar-custom
 {
     background-color:               #2e2e2e;
     font-weight:                    700;
@@ -358,13 +358,13 @@ h1
 }
 
 
-.navbar-custom  .navbar-nav > li > a 
+.navbar-custom  .navbar-nav > li > a
 {
     color:                         #ddd;
 }
 
 
-.navbar-custom  .navbar-nav li > a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a  
+.navbar-custom  .navbar-nav li > a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a
 {
     background-color:              #000;
 }
@@ -376,7 +376,7 @@ h1
 }
 
 
-.navbar-custom .navbar-nav > .dropdown > a .caret 
+.navbar-custom .navbar-nav > .dropdown > a .caret
 {
     border-top-color:              #999;
     border-bottom-color:           #999;
@@ -400,48 +400,48 @@ h1
 }
 
 
-.navbar-collapse.in 
+.navbar-collapse.in
 {
     overflow-y:                     visible;
 }
 
 
-.navbar-toggle 
+.navbar-toggle
 {
     outline:                       0;
 }
 
 
-.divider 
+.divider
 {
     height:                        100px;
 }
 
 
-.panel 
+.panel
 {
     border-width:                  0;
 }
 
 
 @media (max-width: 768px) {
-    header 
+    header
     {
         height:                   95px;
     }
 }
 
 
-#map-canvas 
+#map-canvas
 {
-    width:                       100%; 
+    width:                       100%;
     height:                      300px;
     margin:                      0;
     padding:                     15px;
 }
 
 
-.scroll-top 
+.scroll-top
 {
     position:                   fixed;
     bottom:                     0;
@@ -454,14 +454,14 @@ h1
 }
 
 
-.scroll-top a:link, .scroll-top a:visited 
+.scroll-top a:link, .scroll-top a:visited
 {
     color:                      #222;
-} 
+}
 
 
-section 
-{ 
+section
+{
     color:                      #fff;
     min-height:                 400px;
     height:                     auto !important;
@@ -472,7 +472,7 @@ section
 
 .global--food--waste
 {
-    background:                 url('../img/global-food-loss.png') no-repeat center 0; 
+    background:                 url('../img/global-food-loss.png') no-repeat center 0;
     height:                     700px;
     width:                      100%;
     margin-left:                0;
@@ -493,16 +493,16 @@ section
 
 .bg-cover
 {
-    background:                 url('') no-repeat center center fixed; 
+    background:                 url('') no-repeat center center fixed;
     -webkit-background-size:    cover;
     -moz-background-size:       cover;
     -o-background-size:         cover;
 }
 
 
-.bg-1 
+.bg-1
 {
-    background-image:           url('../img/food-trash.png'); 
+    background-image:           url('../img/food-trash.png');
     -webkit-background-size:    100%;
     -moz-background-size:       100%;
     -o-background-size:         100%;
@@ -510,19 +510,19 @@ section
 }
 
 
-.bg-2 
+.bg-2
 {
-    background-image:           url('http://www.bootply.com/assets/example/bg_5.jpg'); 
+    background-image:           url('//www.bootply.com/assets/example/bg_5.jpg');
 }
 
 
-.bg-3 
+.bg-3
 {
-    background-image:           url('http://www.bootply.com/assets/example/bg_6.jpg'); 
+    background-image:           url('//www.bootply.com/assets/example/bg_6.jpg');
 }
 
 
-.bg-4 
+.bg-4
 {
     padding-top:                30px;
     background-image:           -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
@@ -533,4 +533,3 @@ section
 {
     display:                    none !important;
 }
-
