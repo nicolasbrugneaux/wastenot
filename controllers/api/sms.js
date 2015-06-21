@@ -3,6 +3,7 @@ var RecipeCache = require('../../models/RecipeCache');
 var request = require('request');
 var twilioLib = require('twilio');
 var querystring = require('querystring');
+var client = require('twilio')(secrets.twilio.sid, secrets.twilio.token);
 
 exports.inboundSMS = function(req, res, next) {
 
@@ -173,3 +174,38 @@ function formatSMS( jsonBody ){
 
 	return recipe;
 }
+
+exports.sendSMS = function(req, res, next){
+
+    var phone = req.query.phone;
+    var body = req.query.body;
+
+	//Send an SMS text message
+	client.sendMessage({
+
+	    to: phone,
+	    from: '+4915735982573',
+	    body: body
+
+	}, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+	    if (!err) { // "err" is an error received during the request, if any
+
+	        // "responseData" is a JavaScript object containing data received from Twilio.
+	        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+	        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+
+	        res.send(responseData.from + '-' + responseData.to + '-' + responseData.body); // outputs "+14506667788"
+	        next()
+
+	    }
+	    else
+	    {
+	    	next(err);
+	    }
+	});
+
+}
+
+
+
