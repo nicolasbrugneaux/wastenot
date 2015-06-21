@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var userSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
+  phone: String,
 
   facebook: String,
   twitter: String,
@@ -16,7 +17,8 @@ var userSchema = new mongoose.Schema({
     gender: { type: String, default: '' },
     location: { type: String, default: '' },
     website: { type: String, default: '' },
-    picture: { type: String, default: '' }
+    picture: { type: String, default: '' },
+    phone: { type: String, default: '' }
   },
 
   resetPasswordToken: String,

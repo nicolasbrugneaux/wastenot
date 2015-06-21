@@ -1,9 +1,44 @@
 {{#extend "body"}}
 
+<<<<<<< HEAD
 <div class="accounts--page">
 
     <div class="page-header">
       <h3>Profile Information</h3>
+=======
+<div class="page-header">
+  <h3>Profile Information</h3>
+</div>
+<form action="/account/profile" method="POST" class="form-horizontal">
+  <input type="hidden" name="_csrf" value="{{_csrf}}"/>
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-4">
+      <input type="email" name="email" id="email" value="{{user.email}}" class="form-control"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-4">
+      <input type="text" name="name" id="name" value="{{user.profile.name}}" class="form-control"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-4">
+      <input type="text" name="phone" id="phone" value="{{user.profile.phone}}" class="form-control"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="location" class="col-sm-2 control-label">Location</label>
+    <div class="col-sm-4">
+      <input type="text" name="location" id="location" value="{{user.profile.location}}" class="form-control"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <button type="submit" class="btn btn btn-primary"><i class="fa fa-pencil"></i>Update Profile</button>
+>>>>>>> 10b375e9494c648a4335e46491efe54dfce5e2f3
     </div>
     <form action="/account/profile" method="POST" class="form-horizontal">
       <input type="hidden" name="_csrf" value="{{_csrf}}"/>
