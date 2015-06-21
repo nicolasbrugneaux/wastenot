@@ -1,0 +1,40 @@
+<h1 class="text-center">Contact Us</h1>
+
+<hr>
+
+<div class="col-sm-8  contact--form">
+    <div class="row form-group">
+        <form role="form" method="POST" action="/contact" class="form-horizontal">
+          <input type="hidden" name="_csrf" value="{{_csrf}}"/>
+          <div class="row form-group">
+              <div class="col-xs-10">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Name" required="">
+              </div>
+          </div>
+          <br>
+          <div class="row form-group">
+              <div class="col-xs-10">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required="">
+              </div>
+          </div>
+          <div class="row form-group">
+              <div class="col-xs-10">
+                <textarea rows="5" type="text" class="form-control" name="message" placeholder="Mesage" required=""></textarea>
+              </div>
+          </div>
+          <div class="row form-group">
+              <div class="col-xs-10">
+                  <button class="btn btn-default pull-right">Contact Us</button>
+              </div>
+          </div>
+        </form>
+    </div>
+</div>
+<div class="col-sm-3 pull-right">
+    <address>
+        <strong>Waste Not</strong><br>
+        Anderestrasse 123<br>
+        Berlin 10178<br>
+        P: 030 2425729
+    </address>
+</div>
