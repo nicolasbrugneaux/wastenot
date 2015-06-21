@@ -22,8 +22,10 @@ exports.edit = function(req, res, next) {
 
 	var q = req.query.item;
 	var u = req.query.url;
+	var p = req.query.price;
 	var item = 'sample item';
 	var url = 'http://example.com';
+	var price = '0.0';
 	if (q){
 		item = q;
 	}
@@ -32,10 +34,14 @@ exports.edit = function(req, res, next) {
 		url = u;
 	}
 
+	if (p){
+		price = p
+	}
 
 	var sample = new CartLink({
 		item: item,
-		url: u
+		url: u,
+		price: price
 	});
 
 	sample.save(function(err) {
