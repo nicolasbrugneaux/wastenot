@@ -92,27 +92,68 @@ const displayResults = recipes =>
 
 
         const missingIngredientsString = missingIngredients.map( ingredient => {
-            return `<span class='label label-primary' style="display:inline-block">${ingredient}</span>`;
-        } ).join('&nbsp;');
+            return `<span class='label label-warning' style="display:inline-block">${ingredient}</span>`;
+        } );
 
         return (
-        `<div class="col-sm-4 col-xs-6">
+        `<div class="js-recipe--panel col-sm-4 col-xs-6">
             <div class="panel panel-default">
-              <div><img src="${image.replace('s90-', 's360-')}" class="img-responsive"></div>
-              <p>Missing ingredients</p>
-              <p>${missingIngredientsString}</p>
+              <div>
+                <img src="${image.replace('s90-', 's360-')}" class="img-responsive"></img>
+              </div>
               <div class="panel-body">
                 <h4>${name}</h4>
                 <small><button class='btn btn-primary'>Buy missing ingredients</button></small>
+                <p style="margin-top:15px;">${missingIngredientsString}</p>
               </div>
             </div>
           </div>`
         );
+    } ).reduce( ( acc, span, index ) =>
+    {
+        if ( index === 0 || index === 3 || index === 6 )
+        {
+            return acc + '<div class="js-recipe--row row">' + span;
+        }
+        else if ( index === 2 || index === 5 || index === 8  )
+        {
+            return acc + span + '</div>';
+        }
+        else if ( index === recipes.length - 1 )
+        {
+            return acc;
+        }
+        else
+        {
+            return acc + span;
+        }
+    }, '' );
+
+    $searchResults.html( $( html ) );
+
+    $( '.js-recipe--row' ).each( ( _, row ) =>
+    {
+        const $row = $( row );
+
+        let height;
+        $row.find( '.js-recipe--panel' ).each( ( i, el ) =>
+        {
+            const $el = $( el );
+            console.log( height );
+            if ( !height || $el.height() > height )
+            {
+                height = $el.height();
+            }
+        } );
+
+        $row.find( '.js-recipe--panel' ).each( ( i, el ) =>
+        {
+            const $el = $( el );
+            $el.find( '.panel-body' ).css( 'padding-bottom', (height + 50) - $el.height() );
+            $el.css('min-height', height + 50 );
+        } );
     } );
 
-    html = html.slice( 0, ( Math.floor( ( html.length - 1 ) / 3 ) * 3 ) - 1 );
-
-    $searchResults.html( $( html.join( '' ) ) );
 };
 
 const displayError = () =>
